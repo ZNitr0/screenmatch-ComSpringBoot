@@ -7,10 +7,7 @@ import br.com.alura.screenmatch.model.Episodio;
 import br.com.alura.screenmatch.service.ConsumoApi;
 import br.com.alura.screenmatch.service.ConverterDados;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class Principal {
@@ -58,5 +55,18 @@ public class Principal {
                 ).collect(Collectors.toList());
 
         episodios.forEach(System.out::println);
+
+        System.out.println("Digite o trecho do titulo:");
+        var trechoTitulos = scanner.nextLine();
+         Optional<Episodio> episodioBuscado = episodios.stream()
+                 .filter(e-> e.getTitulo().toUpperCase().contains(trechoTitulos.toUpperCase()))
+                 .findFirst();
+
+        if (episodioBuscado.isPresent()){
+            System.out.println("Episodio econtrado!");
+            System.out.println("Temporada:"  + episodioBuscado.get().getTemporada());
+        } else {
+            System.out.println("Episodio não encontrado!");
+        }
     }
 }
