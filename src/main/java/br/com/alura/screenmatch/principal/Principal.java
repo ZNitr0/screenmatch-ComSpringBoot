@@ -68,5 +68,11 @@ public class Principal {
         } else {
             System.out.println("Episodio não encontrado!");
         }
+
+        Map<Integer, Double> avaliacaoPorTemporada = episodios.stream()
+                .filter(e-> e.getAvaliacao()> 0.0)
+                .collect(Collectors.groupingBy(Episodio::getTemporada,
+                        Collectors.averagingDouble(Episodio::getAvaliacao)));
+        System.out.println(avaliacaoPorTemporada);
     }
 }
