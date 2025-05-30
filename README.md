@@ -94,7 +94,6 @@ Este projeto é apenas para fins educacionais.
 ---
 
 Feito com 💻 por [ZNitr0](https://github.com/ZNitr0)
-Gerado com o auxílio de [GPT Online](https://gptonline.ai/ko/). 🌐
 
 ```
 
